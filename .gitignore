@@ -1,3 +1,10 @@
+# Fork
+pontus_bringup/
+pontus_description/
+pontus_sensors/
+pontus_sim/
+
+
 devel/
 logs/
 build/
