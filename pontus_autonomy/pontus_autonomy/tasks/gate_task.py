@@ -27,7 +27,7 @@ class GatePair:
     right_gate: SemanticObject
 
 
-class PrequalGateTask(BaseTask):
+class GateTask(BaseTask):
 
     def __init__(self):
         super().__init__("prequal_gate_task")
@@ -38,12 +38,12 @@ class PrequalGateTask(BaseTask):
         self.declare_parameters(
             namespace='',
             parameters=[
-                ('height_from_bottom', 1.4),
+                ('height_from_bottom', 1.0),
                 ('gate_side', 0),  # Gate side right
                 # How far should the apparoach and pass through points be to the gate
                 ('waypoint_dist_from_gate', 0.6),
                 ('follow_path_period', 0.25),
-                ('pool_depth', 1.8)
+                ('pool_depth', 2.0)
             ]
         )
 
@@ -164,11 +164,9 @@ class PrequalGateTask(BaseTask):
         # gate passthrough is the point the sub actually goes through the gate
         if self.gate_side == GateSide.LEFT:
             # This is the midpoint between the midpoint and on of the gate sides
-            # passthrough_point = (3*g1 + g2) / 4.0
-            passthrough_point = (g1 + g2) / 2.0
+            passthrough_point = (3*g1 + g2) / 4.0
         else:
-            # passthrough_point = (3*g2 + g1) / 4.0
-            passthrough_point = (g1 + g2) / 2.0
+            passthrough_point = (3*g2 + g1) / 4.0
 
         # Gate vector from left side to right side
         gate_vec = g2 - g1

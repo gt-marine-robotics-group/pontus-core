@@ -39,7 +39,7 @@ class OccupancyGridManager(Node):
         #) Uncomment this line to use a timer update/remove comment in pointcloud_callback
 
         
-        self.declare_parameter('map_resolution_m', 0.1)
+        self.declare_parameter('map_resolution_m', 0.16)
         self.declare_parameter('map_width_cell', 500)
         self.declare_parameter('map_height_cell', 500)
 
@@ -47,10 +47,10 @@ class OccupancyGridManager(Node):
         self.map_width = self.get_parameter('map_width_cell').value
         self.map_height = self.get_parameter('map_height_cell').value
         self.latest_pointcloud: np.array = None
-        self.point_weight = 6
-        self.decay_rate = 3
+        self.point_weight = 8
+        self.decay_rate = 1
 
-        self.clearance = 0.66 # meters
+        self.clearance = 0.33 # meters
 
         self.occupancy_grid: OccupancyGrid = OccupancyGrid()
         self.occupancy_grid.header.frame_id = 'map'
