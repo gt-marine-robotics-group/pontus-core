@@ -1,5 +1,5 @@
-pontus_bringup/** merge=ours
-pontus_description/** merge=ours
-pontus_sensors/** merge=ours
-pontus_sim/** merge=ours
+pontus_bringup/** merge=keepdeleted
+pontus_description/** merge=keepdeleted
+pontus_sensors/** merge=keepdeleted
+pontus_sim/** merge=keepdeleted
 
